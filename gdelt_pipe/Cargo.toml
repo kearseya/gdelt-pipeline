@@ -1,0 +1,37 @@
+[package]
+name = "gdelt-graphing"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+# Command line input
+clap = {version = "4.6.1", features = ["cargo", "derive"]}
+# Parsing website data
+regex = "1"
+# CSV reading + (de)serialization
+csv = "1.4"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+# Zip reading
+zip = { version = "0.6", default-features = false, features = ["deflate"] }
+
+# Node/edge graph construction & algorithms
+petgraph = { version = "0.6", features = ["serde-1"] }
+# Saving graph
+bincode = "1"
+indexmap = "2.14" #"=2.2.6"
+
+# Plotting 
+rand = "0.8"
+# egui = "0.33"
+eframe = { version = "0.35", default-features = true, features = ["glow"] }
+egui_plot = "0.36"
+
+rayon = "1"
+rust-stemmers = "1.2"
+
+psl = "2"
+
+[[bin]]
+name = "analyse"
+path = "src/main.rs"
